@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "my-app",
+    "plugins": ["expo-community-flipper"],
     "slug": "my-app",
     "version": "1.0.0",
     "orientation": "portrait",
