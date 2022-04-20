@@ -22,7 +22,7 @@ export default function App() {
     return (
       <SafeAreaProvider>
         <Navigation colorScheme={colorScheme} />
-        <StatusBar backgroundColor="#f00" />
+        <StatusBar backgroundColor="#FFFFFF" />
       </SafeAreaProvider>
     );
   }
