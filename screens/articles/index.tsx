@@ -1,7 +1,7 @@
 import React from "react";
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, ScrollView } from "react-native";
 import { useQuery } from "react-query";
-import Article from "../../components/Article";
+import { ArticleCard } from "../../components/ArticleCard";
 
 import { Text, View } from "../../components/Themed";
 import { RootTabScreenProps } from "../../types";
@@ -15,21 +15,29 @@ export function Articles({ navigation }: RootTabScreenProps<"TabOne">) {
     )
   );
 
-  // console.log("test", data);
-
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Articles</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
+      <View>
+        <Text style={styles.title}>Articles</Text>
+      </View>
 
-      {isLoading ? <ActivityIndicator /> : null}
-      {error && error?.message ? <Text>{error.message}</Text> : null}
-
-      {data.length > 0 ? data.map((article) => <Article />) : null}
+      <View>
+        {isLoading ? <ActivityIndicator /> : null}
+        {error && error?.message ? <Text>{error.message}</Text> : null}
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+          {data.length > 0
+            ? data.map((article) => (
+                <View style={{ marginVertical: 10 }} key={article.id}>
+                  <ArticleCard
+                    title={article.title}
+                    body={article.body}
+                    user={article.userId}
+                  />
+                </View>
+              ))
+            : null}
+        </ScrollView>
+      </View>
 
       {/* <EditScreenInfo path="/screens/TabOneScreen.tsx" /> */}
     </View>
