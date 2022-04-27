@@ -5,6 +5,9 @@ import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import { connectToDevTools } from "react-devtools-core";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 export default function App() {
   if (__DEV__) {
@@ -20,10 +23,12 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar backgroundColor="#FFFFFF" />
-      </SafeAreaProvider>
+      <QueryClientProvider client={queryClient}>
+        <SafeAreaProvider>
+          <Navigation colorScheme={colorScheme} />
+          <StatusBar backgroundColor="#FFFFFF" />
+        </SafeAreaProvider>
+      </QueryClientProvider>
     );
   }
 }
