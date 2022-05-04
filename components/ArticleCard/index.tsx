@@ -1,3 +1,5 @@
+import { FontAwesome } from "@expo/vector-icons";
+import React from "react";
 import { Text, View } from "../Themed";
 import { styles } from "./index.styles";
 
@@ -18,7 +20,15 @@ export const ArticleCard: React.FC<Props> = ({
     <View style={styles.container}>
       <View style={styles.articleLayout}>
         <View style={styles.favouriteArticle}>
-          {/* TODO: insert like icon, filled/hollow depending on liked state */}
+          <Text>
+            <FontAwesome
+              name="heart-o"
+              size={35}
+              style={{
+                color: "white",
+              }}
+            />
+          </Text>
         </View>
 
         <View style={styles.articleDetails}>

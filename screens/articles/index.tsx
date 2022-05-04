@@ -2,7 +2,6 @@ import React from "react";
 import { ActivityIndicator, ScrollView } from "react-native";
 import { useQuery } from "react-query";
 import { ArticleCard } from "../../components/ArticleCard";
-
 import { Text, View } from "../../components/Themed";
 import { RootTabScreenProps } from "../../types";
 import { styles } from "./index.styles";
@@ -23,10 +22,9 @@ export function Articles({ navigation }: RootTabScreenProps<"TabOne">) {
 
       <View>
         {isLoading ? <ActivityIndicator /> : null}
-        {error && error?.message ? <Text>{error.message}</Text> : null}
         <ScrollView contentContainerStyle={styles.scrollContainer}>
-          {data.length > 0
-            ? data.map((article) => (
+          {data != undefined && data.length > 0
+            ? data.map((article: any) => (
                 <View style={{ marginVertical: 10 }} key={article.id}>
                   <ArticleCard
                     title={article.title}

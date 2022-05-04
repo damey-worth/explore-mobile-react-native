@@ -19,6 +19,9 @@ const articleLayout: ViewStyle = {
 const favouriteArticle: ViewStyle = {
   flex: 1,
   backgroundColor: "#F96060",
+  alignItems: "center",
+  justifyContent: "center",
+  display: "flex",
 };
 
 const articleDetails: ViewStyle = {
