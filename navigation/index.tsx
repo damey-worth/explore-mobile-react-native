@@ -19,7 +19,7 @@ import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import { Articles } from "../screens/articles";
-import TabTwoScreen from "../screens/TabTwoScreen";
+import Favourites from "../screens/Favourites";
 import TabThreeScreen from "../screens/TabThreeScreen";
 import {
   RootStackParamList,
@@ -102,7 +102,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabTwo"
-        component={TabTwoScreen}
+        component={Favourites}
         options={{
           title: "Liked",
           headerTitle: "",

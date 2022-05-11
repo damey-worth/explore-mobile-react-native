@@ -1,5 +1,7 @@
 import { FontAwesome } from "@expo/vector-icons";
 import React from "react";
+import { TouchableOpacity } from "react-native";
+import ArticleViewScreen from "../../screens/ArticleViewScreen";
 import { Text, View } from "../Themed";
 import { styles } from "./index.styles";
 
@@ -17,6 +19,7 @@ export const ArticleCard: React.FC<Props> = ({
   liked = false,
 }) => {
   return (
+    <TouchableOpacity onPress={ArticleViewScreen}> 
     <View style={styles.container}>
       <View style={styles.articleLayout}>
         <View style={styles.favouriteArticle}>
@@ -42,5 +45,6 @@ export const ArticleCard: React.FC<Props> = ({
         </View>
       </View>
     </View>
+    </TouchableOpacity>
   );
 };
