@@ -9,6 +9,7 @@ import {
   NavigationContainer,
   DefaultTheme,
   DarkTheme,
+  createNavigationContainerRef,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
@@ -27,6 +28,7 @@ import {
   RootTabScreenProps,
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
+import ArticleViewScreen from "../screens/ArticleViewScreen";
 
 export default function Navigation({
   colorScheme,
@@ -74,6 +76,7 @@ function RootNavigator() {
  * https://reactnavigation.org/docs/bottom-tab-navigator
  */
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
+const ScreenView = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
   const colorScheme = useColorScheme();
@@ -120,7 +123,27 @@ function BottomTabNavigator() {
           ),
         }}
       />
+      <BottomTab.Screen
+        name="ArticleViewScreen"
+        component={ArticleViewScreen}
+      />
     </BottomTab.Navigator>
+  );
+}
+function ScreenViews() {
+  const colorScheme = useColorScheme();
+
+  return (
+    <ScreenView.Navigator
+      initialRouteName="TabOne"
+      screenOptions={{
+        tabBarActiveTintColor: "#FFFFFF",
+        tabBarInactiveTintColor: "pink",
+        tabBarStyle: {
+          backgroundColor: "#F96060",
+        },
+      }}
+    ></ScreenView.Navigator>
   );
 }
 

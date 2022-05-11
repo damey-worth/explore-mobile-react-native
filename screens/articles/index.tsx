@@ -1,9 +1,10 @@
 import React from "react";
-import { ActivityIndicator, ScrollView } from "react-native";
+import { ActivityIndicator, Button, ScrollView } from "react-native";
 import { useQuery } from "react-query";
 import { ArticleCard } from "../../components/ArticleCard";
 import { Text, View } from "../../components/Themed";
 import { RootTabScreenProps } from "../../types";
+import ArticleViewScreen from "../ArticleViewScreen";
 import { styles } from "./index.styles";
 
 export function Articles({ navigation }: RootTabScreenProps<"TabOne">) {
@@ -30,6 +31,7 @@ export function Articles({ navigation }: RootTabScreenProps<"TabOne">) {
                     title={article.title}
                     body={article.body}
                     user={article.userId}
+                    navigation={navigation}
                   />
                 </View>
               ))
